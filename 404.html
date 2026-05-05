@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>404 - Page Not Found | Stackly</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .stackly-nav .navbar-brand,
+      .stackly-nav .nav-link {
+        color: rgba(255, 255, 255, 0.85) !important;
+      }
+      .stackly-nav .nav-link:hover,
+      .stackly-nav .nav-link.active {
+        color: #fff !important;
+      }
+
+      .error-page {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background: #0a0a0a;
+        overflow: hidden;
+      }
+
+      #particles-canvas {
+        position: fixed;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+
+      .error-main {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+        padding: 20px;
+      }
+
+      .error-content {
+        text-align: center;
+        color: #fff;
+      }
+
+      /* Glitch */
+      .glitch-wrapper {
+        position: relative;
+        display: inline-block;
+      }
+      .glitch {
+        font-size: 160px;
+        font-weight: 900;
+        color: #00adb5;
+        letter-spacing: -6px;
+        line-height: 1;
+        position: relative;
+        animation: glitchMain 3s infinite;
+      }
+      .glitch::before,
+      .glitch::after {
+        content: "404";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        font-size: 160px;
+        font-weight: 900;
+        letter-spacing: -6px;
+      }
+      .glitch::before {
+        color: #ff004f;
+        clip-path: polygon(0 0, 100% 0, 100% 35%, 0 35%);
+        animation: glitchTop 3s infinite;
+        left: 3px;
+      }
+      .glitch::after {
+        color: #007f85;
+        clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
+        animation: glitchBottom 3s infinite;
+        left: -3px;
+      }
+      @keyframes glitchMain {
+        0%,
+        90%,
+        100% {
+          transform: none;
+        }
+        92% {
+          transform: skew(-1deg);
+        }
+        94% {
+          transform: skew(1deg);
+        }
+      }
+      @keyframes glitchTop {
+        0%,
+        90%,
+        100% {
+          transform: none;
+          opacity: 0;
+        }
+        91% {
+          transform: translate(-4px, -2px);
+          opacity: 0.8;
+        }
+        93% {
+          transform: translate(4px, 2px);
+          opacity: 0.8;
+        }
+        95% {
+          opacity: 0;
+        }
+      }
+      @keyframes glitchBottom {
+        0%,
+        90%,
+        100% {
+          transform: none;
+          opacity: 0;
+        }
+        92% {
+          transform: translate(4px, 2px);
+          opacity: 0.8;
+        }
+        94% {
+          transform: translate(-4px, -2px);
+          opacity: 0.8;
+        }
+        96% {
+          opacity: 0;
+        }
+      }
+
+      /* Orbit */
+      .orbit-wrapper {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        margin: 0 auto 20px;
+      }
+      .orbit {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 173, 181, 0.2);
+        animation: orbitSpin 8s linear infinite;
+      }
+      .orbit:nth-child(2) {
+        inset: 20px;
+        border-color: rgba(0, 173, 181, 0.15);
+        animation-duration: 12s;
+        animation-direction: reverse;
+      }
+      .orbit:nth-child(3) {
+        inset: 40px;
+        border-color: rgba(0, 173, 181, 0.1);
+        animation-duration: 6s;
+      }
+      .orbit-dot {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #00adb5;
+        border-radius: 50%;
+        top: -5px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow:
+          0 0 10px #00adb5,
+          0 0 20px #00adb5;
+      }
+      .orbit:nth-child(2) .orbit-dot {
+        background: #007f85;
+        box-shadow: 0 0 10px #007f85;
+        width: 7px;
+        height: 7px;
+        top: -3.5px;
+      }
+      .orbit-center {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        color: #00adb5;
+        animation: pulse 2s ease-in-out infinite;
+      }
+      @keyframes orbitSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+          opacity: 1;
+        }
+        50% {
+          transform: scale(1.15);
+          opacity: 0.7;
+        }
+      }
+
+      /* Text */
+      .error-title {
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+      }
+      .error-title span {
+        color: #00adb5;
+      }
+      .error-desc {
+        font-size: 15px;
+        color: #aaa;
+        max-width: 440px;
+        margin: 0 auto 36px;
+        line-height: 1.7;
+      }
+
+      /* Buttons */
+      .error-actions {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 48px;
+      }
+      .btn-home {
+        padding: 14px 32px;
+        background: linear-gradient(135deg, #00adb5, #007f85);
+        color: #fff;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 15px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s;
+        box-shadow: 0 4px 20px rgba(0, 173, 181, 0.4);
+      }
+      .btn-home:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 173, 181, 0.6);
+      }
+      .btn-ghost {
+        padding: 14px 32px;
+        background: transparent;
+        color: #00adb5;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 15px;
+        border: 2px solid #00adb5;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        transition:
+          transform 0.3s,
+          background 0.3s,
+          color 0.3s;
+      }
+      .btn-ghost:hover {
+        background: #00adb5;
+        color: #fff;
+        transform: translateY(-4px);
+      }
+
+      /* Scanline */
+      .error-main::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 2px,
+          rgba(0, 0, 0, 0.03) 2px,
+          rgba(0, 0, 0, 0.03) 4px
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+    </style>
+  </head>
+  <body class="error-page">
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("components/header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          setActiveNavLink();
+        });
+    </script>
+
+    <!-- 404 Content -->
+    <main class="error-main">
+      <div class="error-content">
+        <div class="glitch-wrapper">
+          <div class="glitch">404</div>
+        </div>
+        <div class="orbit-wrapper">
+          <div class="orbit"><div class="orbit-dot"></div></div>
+          <div class="orbit"><div class="orbit-dot"></div></div>
+          <div class="orbit"><div class="orbit-dot"></div></div>
+          <div class="orbit-center">
+            <i class="fa-solid fa-satellite-dish"></i>
+          </div>
+        </div>
+        <h2 class="error-title">Oops! You're <span>Lost in Space</span></h2>
+        <p class="error-desc">
+          The page you're looking for has drifted into the void. Don't worry —
+          our team is on it. Let's navigate you back to safety.
+        </p>
+        <div class="error-actions">
+          <a href="index.html" class="btn-home"
+            ><i class="fa-solid fa-house"></i> Back to Home</a
+          >
+          <a href="index.html#contact" class="btn-ghost"
+            ><i class="fa-solid fa-headset"></i> Contact Support</a
+          >
+        </div>
+      </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      const canvas = document.getElementById("particles-canvas");
+      const ctx = canvas.getContext("2d");
+      let particles = [];
+
+      function resize() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+      resize();
+      window.addEventListener("resize", resize);
+
+      for (let i = 0; i < 120; i++) {
+        particles.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 2 + 0.5,
+          dx: (Math.random() - 0.5) * 0.4,
+          dy: (Math.random() - 0.5) * 0.4,
+          alpha: Math.random() * 0.5 + 0.1,
+        });
+      }
+
+      function drawParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particles.forEach((p) => {
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(0,173,181,${p.alpha})`;
+          ctx.fill();
+          p.x += p.dx;
+          p.y += p.dy;
+          if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+          if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+        });
+        for (let i = 0; i < particles.length; i++) {
+          for (let j = i + 1; j < particles.length; j++) {
+            const dist = Math.hypot(
+              particles[i].x - particles[j].x,
+              particles[i].y - particles[j].y,
+            );
+            if (dist < 100) {
+              ctx.beginPath();
+              ctx.moveTo(particles[i].x, particles[i].y);
+              ctx.lineTo(particles[j].x, particles[j].y);
+              ctx.strokeStyle = `rgba(0,173,181,${0.08 * (1 - dist / 100)})`;
+              ctx.lineWidth = 0.5;
+              ctx.stroke();
+            }
+          }
+        }
+        requestAnimationFrame(drawParticles);
+      }
+      drawParticles();
+    </script>
+  </body>
+</html>

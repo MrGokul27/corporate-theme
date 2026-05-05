@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stackly - Corporate Site</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- Page Loader -->
+    <div id="page-loader">
+      <div class="loader-logo">Stack<span>ly</span></div>
+      <div class="loader-ring"></div>
+      <div class="loader-bar-track">
+        <div class="loader-bar-fill"></div>
+      </div>
+      <div class="loader-dots"><span></span><span></span><span></span></div>
+    </div>
+
+    <!-- Header Component -->
+    <div id="header-placeholder"></div>
+    <script>
+      fetch("components/header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+          setActiveNavLink();
+        });
+    </script>
+
+    <!-- Hero / Banner -->
+    <section id="home" class="hero">
+      <div class="hero-bg-layer"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="hero-subtitle">✦ Crafting Business From 1991</span>
+        <h1>
+          We're Bringing Your <br /><span class="hero-highlight"
+            >Business.</span
+          >
+        </h1>
+        <p>
+          Established consulting with extensive networks and resources,
+          including access to industry experts and specialized technology
+          partners.
+        </p>
+        <div class="hero-actions">
+          <a href="404.html" class="btn btn-brand py-2 px-4"
+            >View Our Services →</a
+          >
+          <a href="#about" class="btn btn-hero-outline py-2 px-4">Learn More</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span data-target="15" data-suffix="+">0+</span>
+            <p>Years Experience</p>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span data-target="5000" data-suffix="+" data-format="k">0+</span>
+            <p>Happy Clients</p>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat">
+            <span data-target="98" data-suffix="%">0%</span>
+            <p>Success Rate</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
+            <div class="about-image position-relative">
+              <img
+                src="assets/images/01.webp"
+                alt="About Us"
+                class="img-fluid rounded-3"
+              />
+              <div class="about-badge">
+                <span class="badge-title">Our Happy Customer</span>
+                <p class="mb-0">⭐ 4.8 (Feedback Received)</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <span class="section-subtitle">SUSTAINED SUCCESS</span>
+            <h2 class="mt-2 mb-3">
+              Empowering your business vision with our company
+            </h2>
+            <p class="about-content-p">
+              Strategic planning is a cornerstone of business consultancy, with
+              consultants guiding organizations through the process of defining
+              their vision, setting achievable goals, and developing
+              comprehensive roadmaps to achieve them.
+            </p>
+            <div class="about-items">
+              <div class="about-item">
+                <span class="about-icon"
+                  ><i class="fa-solid fa-handshake"></i
+                ></span>
+                <div>
+                  <h3>Maintaining Client Relationships</h3>
+                  <p>
+                    The housekeepers we hired are professionals who take pride
+                    in doing excellent work and in exceed.
+                  </p>
+                </div>
+              </div>
+              <div class="about-item">
+                <span class="about-icon"
+                  ><i class="fa-solid fa-users"></i
+                ></span>
+                <div>
+                  <h3>Attracting and Retaining Top Talent</h3>
+                  <p>
+                    The housekeepers we hired are professionals who take pride
+                    in doing excellent work and in exceed.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+              <a href="" class="btn btn-brand rounded-2">Get Started →</a>
+              <a
+                href=""
+                class="btn btn-outline-brand rounded-2"
+                target="_blank"
+                rel="noopener"
+                >Watch Demo ▶</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services -->
+    <section id="services" class="section services-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-subtitle">Our Services</span>
+          <h2 class="text-white mt-2">
+            We create solutions that are bold &amp; up with the times
+          </h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card h-100">
+              <div class="service-card-top">
+                <span class="service-number">01</span>
+                <div class="service-icon">
+                  <i class="fa-solid fa-magnifying-glass-chart"></i>
+                </div>
+                <img
+                  src="assets/images/service01.webp"
+                  alt="Strategic Solutions"
+                />
+              </div>
+              <div class="service-card-body">
+                <h3>Strategic Solutions</h3>
+                <p>
+                  Business consultancy enables companies to stay competitive in
+                  a rapidly evolving digital landscape, ultimately leading to
+                  increased efficiency...
+                </p>
+                <a href="" class="service-read-more">Read More &#x2197;</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card h-100">
+              <div class="service-card-top">
+                <span class="service-number">02</span>
+                <div class="service-icon">
+                  <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <img
+                  src="assets/images/service02.webp"
+                  alt="Growth Consultants"
+                />
+              </div>
+              <div class="service-card-body">
+                <h3>Growth Consultants</h3>
+                <p>
+                  Business consultancy enables companies to stay competitive in
+                  a rapidly evolving digital landscape, ultimately leading to
+                  increased efficiency...
+                </p>
+                <a href="#" class="service-read-more">Read More &#x2197;</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="service-card h-100">
+              <div class="service-card-top">
+                <span class="service-number">03</span>
+                <div class="service-icon">
+                  <i class="fa-solid fa-person-running"></i>
+                </div>
+                <img src="assets/images/service03.webp" alt="Market Research" />
+              </div>
+              <div class="service-card-body">
+                <h3>Market Research &amp; Analysis</h3>
+                <p>
+                  Business consultancy enables companies to stay competitive in
+                  a rapidly evolving digital landscape, ultimately leading to
+                  increased efficiency...
+                </p>
+                <a href="#" class="service-read-more">Read More &#x2197;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="section why-section">
+      <div class="container">
+        <div class="row align-items-start g-5">
+          <div class="col-lg-6">
+            <span class="section-subtitle">Why Choose Us</span>
+            <h2 class="mt-2 mb-3">Welcome to World Best Business Company</h2>
+            <p>
+              Our designers stay ahead of the curve to provide engaging and
+              user-friendly website designs to make your business stand out. Our
+              developers are committed to maintaining the highest web standards.
+            </p>
+            <div class="clients-section">
+              <img src="assets/images/clients.webp" alt="" />
+              <p class="trusted-text">
+                Trusted by 5000+ Worldwide <br />Brands &amp; Customers
+              </p>
+            </div>
+            <a href="" class="btn btn-brand rounded-2 px-4 py-3"
+              >Make Appointment →</a
+            >
+          </div>
+          <div class="col-lg-6">
+            <div class="why-items">
+              <div class="why-item">
+                <div class="why-icon">
+                  <i class="fa-solid fa-lightbulb"></i>
+                </div>
+                <div>
+                  <h3>Tailored Solutions and Personalized</h3>
+                  <p>
+                    For startups and growing businesses, an online specialist
+                    can develop a digital marketing plan to help you grow.
+                  </p>
+                </div>
+              </div>
+              <div class="why-item">
+                <div class="why-icon"><i class="fa-solid fa-gear"></i></div>
+                <div>
+                  <h3>Proven Track Record and Expertise</h3>
+                  <p>
+                    For startups and growing businesses, an online specialist
+                    can develop a digital marketing plan to help you grow.
+                  </p>
+                </div>
+              </div>
+              <div class="why-item">
+                <div class="why-icon">
+                  <i class="fa-solid fa-handshake"></i>
+                </div>
+                <div>
+                  <h3>Commitment to Measurable Results</h3>
+                  <p>
+                    For startups and growing businesses, an online specialist
+                    can develop a digital marketing plan to help you grow.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Scrolling Text Banner -->
+    <div class="horizontal-wrapper">
+      <h2 class="why-title">
+        Consulting Business &nbsp;&nbsp;✦&nbsp;&nbsp; Consulting Business
+        &nbsp;&nbsp;✦&nbsp;&nbsp; Consulting Business &nbsp;&nbsp;✦&nbsp;&nbsp;
+        Consulting Business &nbsp;&nbsp;✦&nbsp;&nbsp; Consulting Business
+        &nbsp;&nbsp;✦&nbsp;&nbsp; Consulting Business &nbsp;&nbsp;✦&nbsp;&nbsp;
+        Consulting Business &nbsp;&nbsp;✦&nbsp;&nbsp; Consulting Business
+        &nbsp;&nbsp;✦&nbsp;&nbsp; Consulting Business &nbsp;&nbsp;✦&nbsp;&nbsp;
+        Consulting Business &nbsp;&nbsp;✦&nbsp;&nbsp;
+      </h2>
+    </div>
+
+    <!-- Team -->
+    <section id="team" class="section team-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-subtitle">SUSTAINED SUCCESS</span>
+          <h2 class="text-white mt-2">Experience Team Members</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card">
+              <img src="assets/images/member01.webp" alt="Alina Varsha" />
+              <h3>Alina Varsha</h3>
+              <p>CEO</p>
+              <a href="" class="btn btn-brand btn-sm rounded-2"
+                >Make Appointment →</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card">
+              <img src="assets/images/member02.webp" alt="Markus Daniel" />
+              <h3>Markus Daniel</h3>
+              <p>CTO</p>
+              <a href="" class="btn btn-brand btn-sm rounded-2"
+                >Make Appointment →</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card">
+              <img src="assets/images/member03.webp" alt="Sophia Rose" />
+              <h3>Sophia Rose</h3>
+              <p>Chief Advisor</p>
+              <a href="" class="btn btn-brand btn-sm rounded-2"
+                >Make Appointment →</a
+              >
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6">
+            <div class="team-card">
+              <img src="assets/images/member04.webp" alt="Isabella Grace" />
+              <h3>Isabella Grace</h3>
+              <p>Manager</p>
+              <a href="" class="btn btn-brand btn-sm rounded-2"
+                >Make Appointment →</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog -->
+    <section id="blog" class="section blog-section">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-subtitle">Our Blog Posts</span>
+          <h2 class="blog-header mt-2">
+            Read our blog for the latest on research &amp; insights.
+          </h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-card h-100">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-clock"></i> 15 Dec, 2024</span>
+                <span
+                  ><i class="fa-regular fa-folder"></i> Business Solution</span
+                >
+              </div>
+              <div class="blog-card-divider"></div>
+              <h3>Challenges of consultation new Business Firms</h3>
+              <div class="blog-card-img">
+                <img src="assets/images/blog1.webp" alt="Blog 1" />
+              </div>
+              <p>
+                Digital business consultancy is a service that helps
+                organizations leverage digital technologies...
+              </p>
+              <a href="#" class="blog-read-more">Read More &#x2197;</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-card h-100">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-clock"></i> 15 Dec, 2024</span>
+                <span
+                  ><i class="fa-regular fa-folder"></i> Business Solution</span
+                >
+              </div>
+              <div class="blog-card-divider"></div>
+              <h3>
+                Secrets to Operational Efficiency Optimization in the Modern
+              </h3>
+              <div class="blog-card-img">
+                <img src="assets/images/blog2.webp" alt="Blog 2" />
+              </div>
+              <p>
+                Digital business consultancy is a service that helps
+                organizations leverage digital technologies...
+              </p>
+              <a href="#" class="blog-read-more">Read More &#x2197;</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-card h-100">
+              <div class="blog-card-meta">
+                <span><i class="fa-regular fa-clock"></i> 15 Dec, 2024</span>
+                <span
+                  ><i class="fa-regular fa-folder"></i> Business Solution</span
+                >
+              </div>
+              <div class="blog-card-divider"></div>
+              <h3>Enhance Customer Experience and Boost Loyalty</h3>
+              <div class="blog-card-img">
+                <img src="assets/images/blog3.webp" alt="Blog 3" />
+              </div>
+              <p>
+                Digital business consultancy is a service that helps
+                organizations leverage digital technologies...
+              </p>
+              <a href="#" class="blog-read-more">Read More &#x2197;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact / Newsletter -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6">
+            <h2>Sign Up To Our Newsletter</h2>
+            <p>
+              Subscribe to our Newsletter &amp; Event right now to be updated
+            </p>
+          </div>
+          <div class="col-lg-6">
+            <form class="newsletter-form" onsubmit="return false;">
+              <input type="email" placeholder="Email Address*" required />
+              <button type="submit" class="btn btn-dark">
+                Subscribe Now →
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer-placeholder"></div>
+    <script>
+      fetch("components/footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+    <script>
+      startHeroSlideshow();
+      startCounters();
+      setTimeout(() => {
+        const loader = document.getElementById("page-loader");
+        loader.classList.add("hide");
+        setTimeout(() => loader.remove(), 500);
+      }, 3000);
+    </script>
+  </body>
+</html>
