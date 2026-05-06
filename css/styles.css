@@ -410,9 +410,11 @@ body {
   padding: 6px 16px;
   border-radius: 100px;
   opacity: 0;
+}
+.hero-subtitle.start-animation {
   animation:
-    slideInLeft 0.8s ease 0.2s forwards,
-    subtlePulse 2s ease-in-out 1.2s infinite;
+    slideInLeft 0.8s ease forwards,
+    subtlePulse 2s ease-in-out 1s infinite;
 }
 .hero h1 {
   color: #fff;
@@ -420,8 +422,31 @@ body {
   font-weight: 500;
   margin-bottom: 20px;
   line-height: 1.15;
-  opacity: 0;
-  animation: fadeInUp 1s 0.4s ease forwards;
+}
+.hero-text-line {
+  display: inline-block;
+  overflow: hidden;
+  border-right: 3px solid var(--brand);
+  white-space: nowrap;
+  max-width: 0;
+}
+.hero-text-line.start-animation {
+  animation:
+    typing 2s steps(22) 0.3s forwards,
+    blink 0.75s step-end infinite;
+}
+@keyframes typing {
+  from {
+    max-width: 0;
+  }
+  to {
+    max-width: 100%;
+  }
+}
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
 }
 .hero h1 br + .hero-highlight {
   display: block;
@@ -433,7 +458,9 @@ body {
   margin-bottom: 32px;
   max-width: 540px;
   opacity: 0;
-  animation: slideInRight 1s 0.8s ease forwards;
+}
+.hero p.start-animation {
+  animation: slideInRight 1s 0.5s ease forwards;
 }
 .hero-highlight {
   font-size: clamp(52px, 9vw, 88px);
@@ -443,9 +470,11 @@ body {
   line-height: 1;
   text-shadow: 0 0 60px rgba(0, 173, 181, 0.45);
   opacity: 0;
+}
+.hero-highlight.start-animation {
   animation:
-    scaleInBounce 1.2s 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards,
-    glow 3s ease-in-out 2s infinite;
+    fadeInUp 0.8s 1.3s ease forwards,
+    glow 3s ease-in-out 3.5s infinite;
 }
 .hero-actions {
   display: flex;
@@ -453,15 +482,21 @@ body {
   flex-wrap: wrap;
   margin-bottom: 52px;
   opacity: 0;
-  animation: fadeInScale 0.8s 1s ease forwards;
+}
+.hero-actions.start-animation {
+  animation: fadeInScale 0.8s 0.8s ease forwards;
 }
 .hero-actions a:nth-child(1) {
-  animation: bounceIn 0.8s 1.2s ease forwards;
   opacity: 0;
 }
+.hero-actions.start-animation a:nth-child(1) {
+  animation: bounceIn 0.8s 1s ease forwards;
+}
 .hero-actions a:nth-child(2) {
-  animation: bounceIn 0.8s 1.4s ease forwards;
   opacity: 0;
+}
+.hero-actions.start-animation a:nth-child(2) {
+  animation: bounceIn 0.8s 1.2s ease forwards;
 }
 .btn-hero-outline {
   background: transparent;
@@ -488,26 +523,30 @@ body {
   align-items: center;
   gap: 28px;
   opacity: 0;
-  animation: slideInUp 1s 1.6s ease forwards;
+}
+.hero-stats.start-animation {
+  animation: slideInUp 1s 1.4s ease forwards;
 }
 .hero-stat {
   opacity: 0;
+}
+.hero-stat.start-animation {
   animation: popIn 0.6s ease forwards;
 }
-.hero-stat:nth-child(1) {
+.hero-stat.start-animation:nth-child(1) {
+  animation-delay: 1.6s;
+}
+.hero-stat.start-animation:nth-child(2) {
+  animation-delay: 1.7s;
+}
+.hero-stat.start-animation:nth-child(3) {
   animation-delay: 1.8s;
 }
-.hero-stat:nth-child(2) {
+.hero-stat.start-animation:nth-child(5) {
   animation-delay: 1.9s;
 }
-.hero-stat:nth-child(3) {
+.hero-stat.start-animation:nth-child(7) {
   animation-delay: 2s;
-}
-.hero-stat:nth-child(5) {
-  animation-delay: 2.1s;
-}
-.hero-stat:nth-child(7) {
-  animation-delay: 2.2s;
 }
 .hero-stat span {
   display: block;
@@ -530,16 +569,18 @@ body {
   background: rgba(255, 255, 255, 0.2);
   flex-shrink: 0;
   opacity: 0;
+}
+.hero-stat-divider.start-animation {
   animation: fadeIn 0.5s ease forwards;
 }
-.hero-stat-divider:nth-child(2) {
+.hero-stat-divider.start-animation:nth-child(2) {
+  animation-delay: 1.75s;
+}
+.hero-stat-divider.start-animation:nth-child(4) {
+  animation-delay: 1.85s;
+}
+.hero-stat-divider.start-animation:nth-child(6) {
   animation-delay: 1.95s;
-}
-.hero-stat-divider:nth-child(4) {
-  animation-delay: 2.05s;
-}
-.hero-stat-divider:nth-child(6) {
-  animation-delay: 2.15s;
 }
 @keyframes heroFadeUp {
   from {

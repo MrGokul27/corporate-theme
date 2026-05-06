@@ -1,3 +1,36 @@
+window.addEventListener("load", () => {
+  const loader = document.getElementById("page-loader");
+  setTimeout(() => {
+    loader.classList.add("hide");
+    setTimeout(() => {
+      loader.style.display = "none";
+      startHeroAnimations();
+      startHeroSlideshow();
+      startCounters();
+    }, 500);
+  }, 3000);
+});
+
+function startHeroAnimations() {
+  document.querySelector(".hero-subtitle")?.classList.add("start-animation");
+  document.querySelector(".hero-text-line")?.classList.add("start-animation");
+  document.querySelector(".hero-highlight")?.classList.add("start-animation");
+  document.querySelector(".hero p")?.classList.add("start-animation");
+  document.querySelector(".hero-actions")?.classList.add("start-animation");
+  document.querySelector(".hero-stats")?.classList.add("start-animation");
+  document
+    .querySelectorAll(".hero-stat")
+    .forEach((el) => el.classList.add("start-animation"));
+  document
+    .querySelectorAll(".hero-stat-divider")
+    .forEach((el) => el.classList.add("start-animation"));
+
+  setTimeout(() => {
+    const textLine = document.querySelector(".hero-text-line");
+    if (textLine) textLine.style.borderRight = "none";
+  }, 3000);
+}
+
 window.addEventListener("scroll", () => {
   const navbar = document.querySelector("#mainNavbar");
   if (navbar) navbar.classList.toggle("scrolled", window.scrollY > 60);
