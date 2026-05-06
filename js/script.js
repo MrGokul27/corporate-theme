@@ -12,9 +12,69 @@ const headingObserver = new IntersectionObserver(
       }
     });
   },
-  { threshold: 0.2 }
+  { threshold: 0.2 },
 );
 document.querySelectorAll("h2").forEach((h) => headingObserver.observe(h));
+
+// Scroll Animation Observer
+const scrollObserver = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate");
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  },
+  { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
+);
+
+// Observe elements for scroll animations
+function initScrollAnimations() {
+  // Section subtitles
+  document.querySelectorAll(".section-subtitle").forEach((el) => {
+    scrollObserver.observe(el);
+  });
+
+  // Service cards
+  document.querySelectorAll(".service-card").forEach((el) => {
+    scrollObserver.observe(el);
+  });
+
+  // Team cards
+  document.querySelectorAll(".team-card").forEach((el) => {
+    scrollObserver.observe(el);
+  });
+
+  // Blog cards
+  document.querySelectorAll(".blog-card").forEach((el) => {
+    scrollObserver.observe(el);
+  });
+
+  // About items
+  document.querySelectorAll(".about-item").forEach((el) => {
+    scrollObserver.observe(el);
+  });
+
+  // About image
+  document.querySelectorAll(".about-image").forEach((el) => {
+    scrollObserver.observe(el);
+  });
+
+  // Generic fade-in elements
+  document
+    .querySelectorAll(".fade-in, .slide-in-left, .slide-in-right")
+    .forEach((el) => {
+      scrollObserver.observe(el);
+    });
+}
+
+// Initialize on DOM load
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initScrollAnimations);
+} else {
+  initScrollAnimations();
+}
 
 function startHeroSlideshow() {
   const images = ["assets/images/hero.webp", "assets/images/hero2.webp"];
@@ -32,7 +92,10 @@ function startHeroSlideshow() {
 }
 
 function startCounters() {
-  document.querySelectorAll(".hero-stat span[data-target]").forEach((el) => {
+  const counters = document.querySelectorAll(".hero-stat span[data-target]");
+  if (counters.length === 0) return;
+
+  counters.forEach((el) => {
     const target = +el.dataset.target;
     const suffix = el.dataset.suffix || "";
     const isK = el.dataset.format === "k";

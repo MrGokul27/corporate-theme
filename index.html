@@ -40,38 +40,42 @@
     <section id="home" class="hero">
       <div class="hero-bg-layer"></div>
       <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="hero-subtitle">✦ Crafting Business From 1991</span>
-        <h1>
-          We're Bringing Your <br /><span class="hero-highlight"
-            >Business.</span
-          >
-        </h1>
-        <p>
-          Established consulting with extensive networks and resources,
-          including access to industry experts and specialized technology
-          partners.
-        </p>
-        <div class="hero-actions">
-          <a href="404.html" class="btn btn-brand py-2 px-4"
-            >View Our Services →</a
-          >
-          <a href="#about" class="btn btn-hero-outline py-2 px-4">Learn More</a>
-        </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span data-target="15" data-suffix="+">0+</span>
-            <p>Years Experience</p>
+      <div class="container">
+        <div class="hero-content py-5">
+          <span class="hero-subtitle">✦ Crafting Business From 1991</span>
+          <h1>
+            We're Bringing Your <br /><span class="hero-highlight"
+              >Business.</span
+            >
+          </h1>
+          <p>
+            Established consulting with extensive networks and resources,
+            including access to industry experts and specialized technology
+            partners.
+          </p>
+          <div class="hero-actions px-5 px-md-0">
+            <a href="404.html" class="btn btn-brand py-2 px-4"
+              >View Our Services →</a
+            >
+            <a href="#about" class="btn btn-hero-outline py-2 px-4"
+              >Learn More</a
+            >
           </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <span data-target="5000" data-suffix="+" data-format="k">0+</span>
-            <p>Happy Clients</p>
-          </div>
-          <div class="hero-stat-divider"></div>
-          <div class="hero-stat">
-            <span data-target="98" data-suffix="%">0%</span>
-            <p>Success Rate</p>
+          <div class="hero-stats">
+            <div class="hero-stat">
+              <span data-target="15" data-suffix="+">0+</span>
+              <p>Years Experience</p>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span data-target="5000" data-suffix="+" data-format="k">0+</span>
+              <p>Happy Clients</p>
+            </div>
+            <div class="hero-stat-divider"></div>
+            <div class="hero-stat">
+              <span data-target="98" data-suffix="%">0%</span>
+              <p>Success Rate</p>
+            </div>
           </div>
         </div>
       </div>
@@ -467,11 +471,16 @@
     <script src="js/script.js"></script>
     <script>
       startHeroSlideshow();
-      startCounters();
       setTimeout(() => {
         const loader = document.getElementById("page-loader");
         loader.classList.add("hide");
-        setTimeout(() => loader.remove(), 500);
+        setTimeout(() => {
+          loader.remove();
+          // Start counters after loader finishes
+          setTimeout(() => {
+            startCounters();
+          }, 0);
+        }, 500);
       }, 3000);
     </script>
   </body>
